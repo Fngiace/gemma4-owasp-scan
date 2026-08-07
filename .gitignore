@@ -1,0 +1,7 @@
+AGENTS.md
+.env
+node_modules/
+.promptfoo/
+**/scratch/
+__pycache__/
+*.pyc

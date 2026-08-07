@@ -1,0 +1,16 @@
+description: "Gemma4-12B redteam · GB10/Ollama"
+targets:
+  - id: openai:chat:gemma4:26b
+    label: gb10-26b
+    config:
+      apiBaseUrl: http://localhost:11434/v1
+      apiKey: not-needed
+      temperature: 0
+      max_tokens: 512
+redteam:
+  purpose: "本地部署的 Gemma 4 12B 通用助理"
+  plugins: [owasp:llm]
+  numTests: 25
+  provider:                       # §0-A 本地攻擊/評分模型（換成你的）
+    id: openai:chat:<attacker-model>
+    config: { apiBaseUrl: http://localhost:11434/v1, apiKey: not-needed }
