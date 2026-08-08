@@ -51,7 +51,8 @@ for ((index=0; index<test_count; index++)); do
   wait "$child"
   status=$?
   set -e
-  if (( stopped || status != 0 )) || [[ ! -s "$part" ]]; then
+  # Promptfoo returns 100 when an assertion fails; that is a valid red-team finding.
+  if (( stopped || (status != 0 && status != 100) )) || [[ ! -s "$part" ]]; then
     printf '%s test %d did not complete (status=%d); stopping run\n' "$(date -Is)" "$index" "$status" >> "$result_dir/thermal.log"
     exit 1
   fi
