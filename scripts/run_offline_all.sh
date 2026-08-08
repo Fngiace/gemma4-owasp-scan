@@ -6,9 +6,13 @@ repo_dir="$HOME/gemma4-owasp-scan"
 export PATH="$HOME/.nvm/versions/node/v22.23.2/bin:$PATH"
 cd "$repo_dir"
 
-while pgrep -f 'run_offline_thermal.sh promptfoo/promptfooconfig.offline.12b.yaml' >/dev/null; do
-  sleep 15
-done
+if pgrep -f 'run_offline_thermal.sh promptfoo/promptfooconfig.offline.12b.yaml' >/dev/null; then
+  while pgrep -f 'run_offline_thermal.sh promptfoo/promptfooconfig.offline.12b.yaml' >/dev/null; do
+    sleep 15
+  done
+else
+  scripts/run_offline_thermal.sh promptfoo/promptfooconfig.offline.12b.yaml results/gb10/offline-parts results/gb10/run.json
+fi
 
 parts=(results/gb10/offline-parts/*.json)
 (( ${#parts[@]} == 25 ))

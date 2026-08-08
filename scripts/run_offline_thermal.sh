@@ -9,7 +9,7 @@ repo_dir="$HOME/gemma4-owasp-scan"
 promptfoo_bin="$HOME/.nvm/versions/node/v22.23.2/bin/promptfoo"
 export PATH="$HOME/.nvm/versions/node/v22.23.2/bin:$PATH"
 cool_threshold=75
-stop_threshold=90
+stop_threshold=85
 test_count=25
 
 read_temp() {
