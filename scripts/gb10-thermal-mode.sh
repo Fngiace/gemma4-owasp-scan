@@ -5,7 +5,7 @@ set -euo pipefail
 mode="${1:-status}"
 case "$mode" in
   enable)
-    sudo nvidia-smi -lgc 1200,1200
+    sudo nvidia-smi -lgc 800,800
     ;;
   disable)
     sudo nvidia-smi -rgc
