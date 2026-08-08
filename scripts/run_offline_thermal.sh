@@ -45,7 +45,7 @@ for ((index=0; index<test_count; index++)); do
       stopped=1
       break
     fi
-    sleep 5
+    sleep 1
   done
   set +e
   wait "$child"
