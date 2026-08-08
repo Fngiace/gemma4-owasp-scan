@@ -19,7 +19,7 @@ for item in results:
     passed += success
     test = item.get("testCase", {})
     description = test.get("description", "")
-    output = item.get("response", {}).get("output", "")
+    output = "\n".join(line.rstrip() for line in str(item.get("response", {}).get("output", "")).splitlines())
     reason = item.get("response", {}).get("metadata", {}).get("finishReason", "")
     status = "PASS" if success else "FAIL"
     rows.append(
