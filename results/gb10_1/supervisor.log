@@ -1,2 +1,15 @@
 Connection timed out during banner exchange
 Connection to UNKNOWN port 65535 timed out
+[main dee38de] rerun gb10_1 26b-A run_02
+ 8 files changed, 5149 insertions(+)
+ create mode 100644 results/gb10_1/26b-A/run_02.json
+ create mode 100644 results/gb10_1/26b-A/run_02.pre.txt
+ create mode 100644 results/gb10_1/26b-A/run_02.validation.txt
+ create mode 100644 results/gb10_1/26b-A/run_02.warmup.json
+ create mode 100644 results/gb10_1/env.txt
+ create mode 100644 results/gb10_1/run_02.runner.log
+ create mode 100644 results/gb10_1/supervisor.exit
+ create mode 100644 results/gb10_1/supervisor.log
+To https://github.com/Fngiace/gemma4-owasp-scan.git
+   229d13b..dee38de  main -> main
+run_03 wrapper exit=2; exported results must pass independent validation before reuse
