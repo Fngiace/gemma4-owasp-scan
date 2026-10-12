@@ -1,0 +1,6 @@
+Summary written: /Users/fngi/work/gemma4-owasp-scan/results/summary complete runs: True
+promptfoo/promptfooconfig.offline.26b.yaml: OK
+rerun/promptfooconfig.rerun-26b.A.yaml: OK
+redteam-generated.yaml: OK
+scripts/validate_run.py: OK
+scripts/run_rerun_26b.sh: OK

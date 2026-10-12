@@ -4,7 +4,7 @@ cd /Users/fngi/work/gemma4-owasp-scan
 export PATH=/Users/fngi/work/node-v22.23.2-darwin-arm64/bin:/Users/fngi/bin:/opt/homebrew/bin:$PATH
 REMOTE=/home/fngi/work/gemma4-owasp-scan
 retry() { local attempt; for attempt in 1 2 3 4 5; do if "$@"; then return 0; fi; sleep 10; done; return 1; }
-for i in 2 3 4 5; do
+for i in $(seq "${START:-2}" 5); do
   printf -v n '%02d' "$i"
   session="gemma26b-run-$n"
   while true; do
@@ -23,7 +23,7 @@ for i in 2 3 4 5; do
   status=$(retry ssh -o BatchMode=yes -o ConnectTimeout=30 gb10_1 "cat $REMOTE/results/gb10_1/run_$n.exit")
   retry scp -q -o BatchMode=yes -o ConnectTimeout=30 -r "gb10_1:$REMOTE/results/gb10_1/26b-A" results/gb10_1/
   retry scp -q -o BatchMode=yes -o ConnectTimeout=30 "gb10_1:$REMOTE/results/gb10_1/run_$n.runner.log" results/gb10_1/
-  test "$status" = 0
+  if test "$status" != 0; then echo "run_$n wrapper exit=$status; exported results must pass independent validation before reuse"; fi
   python3.12 scripts/validate_run.py "results/gb10_1/26b-A/run_$n.json" > "results/gb10_1/26b-A/run_$n.validation.txt"
   (
     until mkdir /tmp/gemma26b-git-lock 2>/dev/null; do sleep 2; done
