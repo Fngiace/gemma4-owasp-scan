@@ -1,0 +1,5 @@
+Mon Oct 12 14:51:31 UTC 2026
+ollama version is 0.32.14
+NAME          ID              SIZE      PROCESSOR    CONTEXT    UNTIL   
+gemma4:26b    001e5dafc3c7    2.6 GB    100% GPU     262144     Forever    
+elapsed_s=254 promptfoo_exit=100
