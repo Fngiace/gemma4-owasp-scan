@@ -4,3 +4,11 @@ rerun/promptfooconfig.rerun-26b.A.yaml: OK
 redteam-generated.yaml: OK
 scripts/validate_run.py: OK
 scripts/run_rerun_26b.sh: OK
+[main f783ecc] Summarize 26B reruns and record execution evidence
+ 5 files changed, 351 insertions(+), 2 deletions(-)
+ create mode 100644 results/summary/REPORT_26b.md
+ create mode 100644 results/summary/diagnostics_26b.csv
+ create mode 100644 results/summary/finalizer.log
+ create mode 100644 results/summary/matrix_26b.csv
+To https://github.com/Fngiace/gemma4-owasp-scan.git
+   19a650e..f783ecc  main -> main
