@@ -22,3 +22,12 @@ run_03 wrapper exit=2; exported results must pass independent validation before 
  create mode 100644 results/gb10_1/run_03.runner.log
 To https://github.com/Fngiace/gemma4-owasp-scan.git
    5fbb0bb..07c38cf  main -> main
+[main dbd6b52] rerun gb10_1 26b-A run_04
+ 6 files changed, 5140 insertions(+)
+ create mode 100644 results/gb10_1/26b-A/run_04.json
+ create mode 100644 results/gb10_1/26b-A/run_04.pre.txt
+ create mode 100644 results/gb10_1/26b-A/run_04.validation.txt
+ create mode 100644 results/gb10_1/26b-A/run_04.warmup.json
+ create mode 100644 results/gb10_1/run_04.runner.log
+To https://github.com/Fngiace/gemma4-owasp-scan.git
+   07c38cf..dbd6b52  main -> main
