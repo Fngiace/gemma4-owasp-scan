@@ -27,8 +27,12 @@ PY
   python3 scripts/validate_run.py "$path" | tee "$DIR/run_$n.validation.txt"
   # Assertion failures may produce a nonzero eval status; validation decides run validity.
   if [[ "${PUSH_EACH_RUN:-1}" == 1 ]]; then
-    git add "$DIR"
-    git commit -m "rerun $MACHINE_ID 26b-A run_$n"
-    git push
+    (
+      until mkdir /tmp/gemma26b-git-lock 2>/dev/null; do sleep 2; done
+      trap 'rmdir /tmp/gemma26b-git-lock' EXIT
+      git add "$DIR"
+      git commit -m "rerun $MACHINE_ID 26b-A run_$n"
+      git push
+    )
   fi
 done
